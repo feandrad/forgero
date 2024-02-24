@@ -113,11 +113,11 @@ public class ForgeroPostInit implements ForgeroInitializedEntryPoint {
 	}
 
 	private void registerToolTipFilters() {
-		var defaults = List.of(AttackDamage.KEY, MiningSpeed.KEY, Durability.KEY, MiningLevel.KEY, AttackSpeed.KEY, Armor.KEY, Weight.KEY);
+		var defaults = List.of(AttackDamage.KEY, MiningSpeed.KEY, Durability.KEY, MiningLevel.KEY, AttackSpeed.KEY, Protection.KEY, Weight.KEY);
 		defaults.stream().map(TooltipAttributeRegistry.attributeBuilder()::attribute).forEach(TooltipAttributeRegistry.AttributeBuilder::register);
 		TooltipAttributeRegistry.attributeBuilder().attribute("RARITY").condition(container -> !ForgeroConfigurationLoader.configuration.hideRarity).register();
 
-		var swords = List.of(AttackDamage.KEY, AttackSpeed.KEY, Durability.KEY, Armor.KEY, Weight.KEY);
+		var swords = List.of(AttackDamage.KEY, AttackSpeed.KEY, Durability.KEY, Protection.KEY, Weight.KEY);
 		TooltipAttributeRegistry.filterBuilder().attributes(swords).type(Type.SWORD_BLADE).register();
 		TooltipAttributeRegistry.filterBuilder().attributes(swords).type(Type.SWORD).register();
 		registerAttributeModifications();
@@ -140,7 +140,7 @@ public class ForgeroPostInit implements ForgeroInitializedEntryPoint {
 				.register();
 
 		modificationBuilder()
-				.attributeKey(Armor.KEY)
+				.attributeKey(Protection.KEY)
 				.modification(new BrokenToolAttributeModification(0f))
 				.register();
 

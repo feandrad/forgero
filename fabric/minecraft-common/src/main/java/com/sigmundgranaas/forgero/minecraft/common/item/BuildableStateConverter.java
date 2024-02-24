@@ -8,10 +8,13 @@ import com.sigmundgranaas.forgero.core.registry.RankableConverter;
 import com.sigmundgranaas.forgero.core.state.StateProvider;
 import lombok.Builder;
 
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.util.Identifier;
+
+import org.apache.commons.lang3.function.TriFunction;
 
 @Builder(toBuilder = true)
 public class BuildableStateConverter implements RankableConverter<StateProvider, ItemData> {
@@ -32,6 +35,9 @@ public class BuildableStateConverter implements RankableConverter<StateProvider,
 
 	@Builder.Default
 	private final BiFunction<StateProvider, Item.Settings, Item> item = (state, settings) -> new DefaultStateItem(settings, state);
+
+	@Builder.Default
+	private final TriFunction<ArmorItem.Type, StateProvider, Item.Settings, Item> armor = (armorType, state, settings) -> new DefaultStateItem(settings, state);
 
 	public ItemData convert(StateProvider state) {
 		ItemGroup group = this.group.apply(state);

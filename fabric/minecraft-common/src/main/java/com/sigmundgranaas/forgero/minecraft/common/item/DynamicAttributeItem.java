@@ -12,11 +12,10 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.sigmundgranaas.forgero.core.Forgero;
 import com.sigmundgranaas.forgero.core.configuration.ForgeroConfigurationLoader;
 import com.sigmundgranaas.forgero.core.property.PropertyContainer;
 import com.sigmundgranaas.forgero.core.property.v2.ComputedAttribute;
-import com.sigmundgranaas.forgero.core.property.v2.attribute.attributes.Armor;
+import com.sigmundgranaas.forgero.core.property.v2.attribute.attributes.Protection;
 import com.sigmundgranaas.forgero.core.property.v2.attribute.attributes.*;
 import com.sigmundgranaas.forgero.core.state.State;
 import com.sigmundgranaas.forgero.core.util.match.MatchContext;
@@ -135,9 +134,9 @@ public interface DynamicAttributeItem extends DynamicAttributeTool, DynamicDurab
 		int luck = LuckHandler.of(dynamicProperties(stack)).map(ComputedAttribute::asInt).orElse(0);
 		builder.put(EntityAttributes.GENERIC_LUCK, new EntityAttributeModifier(ADDITION_LUCK_MODIFIER_ID, "Luck addition", luck, EntityAttributeModifier.Operation.ADDITION));
 
-		//Additional armor
-		float armor = ComputedAttribute.of(dynamicProperties(stack), Armor.KEY).asFloat();
-		builder.put(EntityAttributes.GENERIC_ARMOR, new EntityAttributeModifier(ADDITION_ARMOR_MODIFIER_ID, "Armor addition", armor, EntityAttributeModifier.Operation.ADDITION));
+		//Additional protection
+		float protection = ComputedAttribute.of(dynamicProperties(stack), Protection.KEY).asFloat();
+		builder.put(EntityAttributes.GENERIC_ARMOR, new EntityAttributeModifier(ADDITION_ARMOR_MODIFIER_ID, "Protection addition", protection, EntityAttributeModifier.Operation.ADDITION));
 
 		//Additional health
 		int additionalHealth = AdditionalHealthHandler.of(dynamicProperties(stack)).map(ComputedAttribute::asInt).orElse(0);
