@@ -1,0 +1,18 @@
+{
+  "PARENT": "EQUIPABLE",
+  "name": "ARMOR",
+  "children": [
+    {
+      "name": "HELMET"
+    },
+    {
+      "name": "CHESTPLATE"
+    },
+    {
+      "name": "LEGGINGS"
+    },
+    {
+      "name": "BOOTS"
+    }
+  ]
+}

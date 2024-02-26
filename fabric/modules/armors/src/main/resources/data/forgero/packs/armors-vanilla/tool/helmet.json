@@ -11,18 +11,14 @@
     "target": "CREATE",
     "components": [
       {
-        "type": "HELMET_LIMB"
+        "id": "forgero:helmet-schematic"
+      },
+      {
+        "type": "METAL",
+        "unique": true
       }
     ],
     "slots": [
-      {
-        "upgrade_type": "SMITHING",
-        "category": [
-          "UNDEFINED"
-        ],
-        "type": "VISOR",
-        "tier": 1
-      }
     ]
   },
   "model": {
