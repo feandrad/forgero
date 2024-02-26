@@ -12,7 +12,8 @@
     "Rad233",
     "identithree",
     "macaroni0423",
-    "Steveplays28"
+    "Steveplays28",
+    "feandrad (Felis)"
   ],
   "contact": {
     "homepage": "https://sigmundgranaas.com",
@@ -33,7 +34,7 @@
   "depends": {
     "fabricloader": ">=0.12.12",
     "fabric": "*",
-    "minecraft": "1.20.1",
+    "minecraft": "1.20.4",
     "java": ">=17",
     "forgero-fabric-core": "*"
   },

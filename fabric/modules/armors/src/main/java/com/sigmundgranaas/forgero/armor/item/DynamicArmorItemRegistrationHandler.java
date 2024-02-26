@@ -4,10 +4,10 @@ import static com.sigmundgranaas.forgero.minecraft.common.item.RegistryUtils.typ
 
 import java.util.Optional;
 
-import com.sigmundgranaas.forgero.armor.attribute.KnockbackResistance;
-import com.sigmundgranaas.forgero.armor.attribute.Toughness;
 import com.sigmundgranaas.forgero.core.property.v2.attribute.attributes.Durability;
+import com.sigmundgranaas.forgero.core.property.v2.attribute.attributes.KnockbackResistance;
 import com.sigmundgranaas.forgero.core.property.v2.attribute.attributes.Protection;
+import com.sigmundgranaas.forgero.core.property.v2.attribute.attributes.Toughness;
 import com.sigmundgranaas.forgero.core.registry.GenericRegistry;
 import com.sigmundgranaas.forgero.core.registry.RankableConverter;
 import com.sigmundgranaas.forgero.core.registry.Registerable;
@@ -18,11 +18,9 @@ import com.sigmundgranaas.forgero.core.state.composite.ConstructedTool;
 import com.sigmundgranaas.forgero.minecraft.common.item.BuildableStateConverter;
 import com.sigmundgranaas.forgero.minecraft.common.item.ItemData;
 import com.sigmundgranaas.forgero.minecraft.common.service.StateService;
-
-import net.minecraft.data.client.BlockStateVariantMap;
-
 import org.apache.commons.lang3.function.TriFunction;
 
+import net.minecraft.data.client.BlockStateVariantMap;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterials;
@@ -42,25 +40,25 @@ public class DynamicArmorItemRegistrationHandler implements Registerable<Rankabl
 				.priority(1)
 				.build();
 
-		registry.register("forgero:helmet", base.toBuilder()
+		registry.register("forgero:dynamic_helmet", base.toBuilder()
 				.priority(2)
 				.matcher(typeMatcher("HELMET"))
 				.armor(armorItemPreparer(this::armor))
 				.build());
 
-		registry.register("forgero:chestplate", base.toBuilder()
+		registry.register("forgero:dynamic_chestplate", base.toBuilder()
 				.priority(2)
 				.matcher(typeMatcher("CHESTPLATE"))
 				.armor(armorItemPreparer(this::armor))
 				.build());
 
-		registry.register("forgero:leggings", base.toBuilder()
+		registry.register("forgero:dynamic_leggings", base.toBuilder()
 				.priority(2)
 				.matcher(typeMatcher("LEGGINGS"))
 				.armor(armorItemPreparer(this::armor))
 				.build());
 
-		registry.register("forgero:boots", base.toBuilder()
+		registry.register("forgero:dynamic_boots", base.toBuilder()
 				.priority(2)
 				.matcher(typeMatcher("BOOTS"))
 				.armor(armorItemPreparer(this::armor))

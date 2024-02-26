@@ -83,6 +83,7 @@ public class ARRPGenerator {
 	private void createMaterialToolTags() {
 		var tools = ForgeroStateRegistry.STATES.find(Type.HOLDABLE);
 		var materials = ForgeroStateRegistry.STATES.find(Type.TOOL_MATERIAL);
+		var armors = ForgeroStateRegistry.STATES.find(Type.ARMOR);
 
 		Map<String, List<State>> materialMap = materials.stream()
 				.map(Supplier::get)
@@ -91,11 +92,30 @@ public class ARRPGenerator {
 								.anyMatch(nameElement -> nameElement.equals(material.name())))
 						.toList()));
 
+		Map<String, List<State>> armorMaterialMap = materials.stream()
+				.map(Supplier::get)
+				.collect(Collectors.toMap(Identifiable::name, material -> armors.stream().map(Supplier::get)
+						.filter(tool -> Arrays.stream(tool.name().split(ELEMENT_SEPARATOR))
+								.anyMatch(nameElement -> nameElement.equals(material.name())))
+						.toList()));
+
+		for (Map.Entry<String, List<State>> entry : armorMaterialMap.entrySet()) {
+			String key = entry.getKey();
+			List<State> states = entry.getValue();
+			JTag materialToolTag = new JTag();
+			if (!states.isEmpty()) {
+				states.stream()
+						.map(State::identifier)
+						.forEach(id -> add(id, materialToolTag));
+				RESOURCE_PACK_BUILTIN.addTag(new Identifier(Forgero.NAMESPACE, "items/" + key + "_armor"), materialToolTag);
+			}
+		}
+
 		for (Map.Entry<String, List<State>> entry : materialMap.entrySet()) {
 			String key = entry.getKey();
 			List<State> states = entry.getValue();
 			JTag materialToolTag = new JTag();
-			if (states.size() > 0) {
+			if (!states.isEmpty()) {
 				states.stream()
 						.map(State::identifier)
 						.forEach(id -> add(id, materialToolTag));

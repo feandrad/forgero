@@ -1,0 +1,31 @@
+{
+  "type": "HELMET",
+  "name": "helmet",
+  "resource_type": "CONSTRUCT_TEMPLATE",
+  "container": {
+    "type": "CREATE",
+    "id": "this"
+  },
+  "construct": {
+    "type": "HELMET",
+    "target": "CREATE",
+    "components": [
+      {
+        "type": "HELMET_LIMB"
+      }
+    ],
+    "slots": [
+      {
+        "upgrade_type": "SMITHING",
+        "category": [
+          "UNDEFINED"
+        ],
+        "type": "VISOR",
+        "tier": 1
+      }
+    ]
+  },
+  "model": {
+    "type": "COMPOSITE"
+  }
+}

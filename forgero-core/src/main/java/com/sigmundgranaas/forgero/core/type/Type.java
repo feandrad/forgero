@@ -12,6 +12,7 @@ import com.sigmundgranaas.forgero.core.util.match.Matchable;
 
 public interface Type extends Matchable {
 	Type HOLDABLE = new SimpleType("HOLDABLE", Optional.empty(), new TypeMatcher());
+	Type EQUIPABLE = new SimpleType("EQUIPABLE", Optional.empty(), new TypeMatcher());
 
 	Type TOOL = new SimpleType("TOOL", Optional.of(HOLDABLE), new TypeMatcher());
 	Type PICKAXE = new SimpleType("PICKAXE", Optional.of(TOOL), new TypeMatcher());
@@ -44,6 +45,11 @@ public interface Type extends Matchable {
 	Type BOW_LIMB = new SimpleType("BOW_LIMB", Optional.of(PART), new TypeMatcher());
 	Type ARROW = new SimpleType("ARROW", Optional.empty(), new TypeMatcher());
 	Type ARROW_HEAD = new SimpleType("ARROW_HEAD", Optional.of(PART), new TypeMatcher());
+	Type ARMOR = new SimpleType("ARMOR", Optional.of(EQUIPABLE), new TypeMatcher());
+	Type HELMET = new SimpleType("HELMET", Optional.of(ARMOR), new TypeMatcher());
+	Type CHESTPLATE = new SimpleType("CHESTPLATE", Optional.of(ARMOR), new TypeMatcher());
+	Type LEGGINGS = new SimpleType("LEGGINGS", Optional.of(ARMOR), new TypeMatcher());
+	Type BOOTS = new SimpleType("BOOTS", Optional.of(ARMOR), new TypeMatcher());
 
 
 	static Type of(String name) {

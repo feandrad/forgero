@@ -21,15 +21,14 @@ import com.sigmundgranaas.forgero.minecraft.common.item.ItemRegistries;
 import com.sigmundgranaas.forgero.minecraft.common.registry.registrar.Registrar;
 import com.sigmundgranaas.forgero.minecraft.common.service.StateService;
 
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.InvalidIdentifierException;
+
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 /**
  * A class to handle registration of states.
@@ -44,7 +43,7 @@ public class StateItemRegistrar implements Registrar {
 	private Map<String, Integer> generateSortingMap() {
 		var sortingMap = new HashMap<String, Integer>();
 		service.all().stream().map(Supplier::get)
-				.filter(state -> !state.test(Type.WEAPON) && !state.test(Type.TOOL))
+				.filter(state -> !state.test(Type.WEAPON) && !state.test(Type.TOOL) && !state.test(Type.ARMOR))
 				.forEach(state -> sortingMap.compute(StateAttributes.getMaterialName(state),
 						(key, value) -> value == null || StateAttributes.getRarity(state) > value ? StateAttributes.getRarity(state) : value));
 		return sortingMap;

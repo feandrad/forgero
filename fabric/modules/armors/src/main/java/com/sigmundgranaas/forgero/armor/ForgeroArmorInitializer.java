@@ -2,20 +2,14 @@ package com.sigmundgranaas.forgero.armor;
 
 import static com.sigmundgranaas.forgero.minecraft.common.item.RegistryUtils.*;
 
+import com.sigmundgranaas.forgero.armor.item.ArmorGroupRegistrars;
 import com.sigmundgranaas.forgero.armor.item.DynamicArmorItemRegistrationHandler;
 import com.sigmundgranaas.forgero.core.Forgero;
-import com.sigmundgranaas.forgero.core.handler.HandlerBuilderRegistry;
-import com.sigmundgranaas.forgero.core.model.match.PredicateFactory;
 import com.sigmundgranaas.forgero.core.registry.RegistryFactory;
 import com.sigmundgranaas.forgero.fabric.api.entrypoint.ForgeroPreInitializationEntryPoint;
-
-import com.sigmundgranaas.forgero.minecraft.common.handler.use.StopHandler;
-import com.sigmundgranaas.forgero.minecraft.common.handler.use.UseHandler;
 import com.sigmundgranaas.forgero.minecraft.common.item.BuildableStateConverter;
 import com.sigmundgranaas.forgero.minecraft.common.item.ItemRegistries;
-import com.sigmundgranaas.forgero.armor.item.ArmorGroupRegistrars;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
+
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -24,7 +18,6 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.World;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 
@@ -33,17 +26,17 @@ public class ForgeroArmorInitializer implements ForgeroPreInitializationEntryPoi
 			RegistryKeys.ITEM_GROUP, new Identifier(Forgero.NAMESPACE, "armors")
 	);
 
-	public static final ItemGroup FORGERO_ARMOR = FabricItemGroup.builder()
+	public static final ItemGroup FORGERO_ARMORS = FabricItemGroup.builder()
 			.icon(ForgeroArmorInitializer::armorIcon)
 			.displayName(Text.translatable("itemGroup.forgero.armors"))
 			.build();
 
 	static {
-		Registry.register(Registries.ITEM_GROUP, FORGERO_ARMOR_KEY, FORGERO_ARMOR);
+		Registry.register(Registries.ITEM_GROUP, FORGERO_ARMOR_KEY, FORGERO_ARMORS);
 	}
 	
 	private static ItemStack armorIcon() {
-		return new ItemStack(Registries.ITEM.get(new Identifier("forgero:oak-armor")));
+		return new ItemStack(Registries.ITEM.get(new Identifier("minecraft:iron_helmet")));
 	}
 
 	@Override
