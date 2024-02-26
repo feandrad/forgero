@@ -1,0 +1,50 @@
+{
+  "type": "HOOD_SCHEMATIC",
+  "name": "hood-schematic",
+  "resource_type": "DEFAULT",
+  "container": {
+    "type": "CREATE",
+    "id": "this"
+  },
+  "construct": {
+    "type": "HELMET",
+    "target": "CREATE",
+    "components": [
+      {
+        "id": "this"
+      },
+      {
+        "type": "HIDE",
+        "unique": true
+      }
+    ],
+    "slots": [
+    ]
+  },
+  "properties": {
+    "attributes": [
+      {
+        "id": "schematic-rarity-local",
+        "type": "RARITY",
+        "order": "BASE",
+        "context": "LOCAL",
+        "operation": "ADDITION",
+        "value": 25
+      },
+      {
+        "id": "schematic-rarity-composite",
+        "type": "RARITY",
+        "order": "BASE",
+        "context": "COMPOSITE",
+        "operation": "MULTIPLICATION",
+        "value": 1
+      }
+    ]
+  },
+  "custom_data": {
+    "ingredient_count": {
+      "value": 3,
+      "context": "LOCAL"
+    }
+  }
+}

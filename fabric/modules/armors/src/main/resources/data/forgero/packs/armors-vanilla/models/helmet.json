@@ -1,0 +1,35 @@
+{
+  "type": "HELMET",
+  "models": [
+    {
+      "name": "helmet",
+      "template": "helmet.png",
+      "type": "GENERATE",
+      "palette": "METAL",
+      "order": 20
+    },
+    {
+      "name": "hood",
+      "template": "hood.png",
+      "type": "GENERATE",
+      "palette": "HIDE",
+      "order": 20
+    },
+    {
+      "target": [
+        "type:HELMET",
+        "type:HELMET_SCHEMATIC"
+      ],
+      "modelType": "BASED_COMPOSITE",
+      "template": "helmet"
+    },
+    {
+      "target": [
+        "type:HELMET",
+        "type:HOOD_SCHEMATIC"
+      ],
+      "modelType": "BASED_COMPOSITE",
+      "template": "hood"
+    }
+  ]
+}

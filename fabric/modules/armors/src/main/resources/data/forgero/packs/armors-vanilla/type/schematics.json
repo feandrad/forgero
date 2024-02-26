@@ -1,0 +1,11 @@
+{
+  "name": "SCHEMATIC",
+  "children": [
+    {
+      "name": "HELMET_SCHEMATIC"
+    },
+    {
+      "name": "HOOD_SCHEMATIC"
+    }
+  ]
+}

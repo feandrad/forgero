@@ -1,0 +1,35 @@
+{
+  "type": "HELMET_SCHEMATIC",
+  "name": "helmet-schematic",
+  "resource_type": "DEFAULT",
+  "container": {
+    "type": "CREATE",
+    "id": "this"
+  },
+  "properties": {
+    "attributes": [
+      {
+        "id": "schematic-rarity-local",
+        "type": "RARITY",
+        "order": "BASE",
+        "context": "LOCAL",
+        "operation": "ADDITION",
+        "value": 25
+      },
+      {
+        "id": "schematic-rarity-composite",
+        "type": "RARITY",
+        "order": "BASE",
+        "context": "COMPOSITE",
+        "operation": "MULTIPLICATION",
+        "value": 1
+      }
+    ]
+  },
+  "custom_data": {
+    "ingredient_count": {
+      "value": 3,
+      "context": "LOCAL"
+    }
+  }
+}
